@@ -144,7 +144,7 @@ $map: ( 1:8.3333%, 2:16.6666%, 3:25%, 4:33.3333%, 5:41.6666%, 6:50%, 7:58.3333%,
     min-height: min-content;
   
     /* With padding*/
-    &-padding {
+    &-padded {
         @extend .lattice-row;
         .lattice-col {
             padding: .5rem;
@@ -177,6 +177,22 @@ $map: ( 1:8.3333%, 2:16.6666%, 3:25%, 4:33.3333%, 5:41.6666%, 6:50%, 7:58.3333%,
               &:last-child {
                 padding-right: .5rem;
               }
+            }
+        }
+      
+        &-vertically {
+            @extend .lattice-row;
+            .lattice-col {
+                padding: .5rem 0;
+              
+            }
+        }
+      
+        &-horizontally {
+            @extend .lattice-row;
+            .lattice-col {
+                padding: 0 .5rem;
+              
             }
         }
     }
@@ -320,28 +336,42 @@ $map: ( 1:8.3333%, 2:16.6666%, 3:25%, 4:33.3333%, 5:41.6666%, 6:50%, 7:58.3333%,
     min-height: min-content;
     
     /* Alignment per column */
-    &-top {
+    &-align {
+      &-top {
+        @extend .lattice-col;
         align-self: flex-start;
-    }
-
-    &-bottom {
+      }
+      
+      &-bottom {
+        @extend .lattice-col;
         align-self: flex-end;
-    }
-
-    &-center {
+      }
+      
+      &-center {
+        @extend .lattice-col;
         align-self: center;
+      }
     }
 
-    &-right {
+    &-justify {
+      &-right {
+        @extend .lattice-col;
         display: flex;
         justify-content: flex-end;
+      }
+      
+      &-center {
+        @extend .lattice-col;
+        display: flex;
+        justify-content: center;
+      }
     }
 
     &-fullheight {
         @extend .lattice-col;
         display: flex;
     }
-
+  
     $i: 0;
 
     @while $i <= 12 {
